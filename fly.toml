@@ -15,3 +15,9 @@ primary_region = "lax"
   auto_start_machines = true
   min_machines_running = 0
   processes = ["app"]
+
+[env]
+  COOKIE_SECRET = {ref="COOKIE_SECRET"}
+  DB_URL = {ref="DB_URL"}
+  GH_CLIENT = {ref="GH_CLIENT"}
+  GH_SECRET = {ref="GH_SECRET"}
