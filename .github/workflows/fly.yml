@@ -8,6 +8,7 @@ env:
   DB_URL: ${{ secrets.DB_URL }}
   GH_CLIENT: ${{ secrets.GH_CLIENT }}
   GH_SECRET: ${{ secrets.GH_SECRET }}
+  COOKIE_SECRET: ${{ secrets.COOKIE_SECRET }}
 jobs:
   deploy:
       name: Deploy app
