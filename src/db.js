@@ -1,6 +1,12 @@
 import mongoose from "mongoose";
 
-mongoose.connect(process.env.DB_URL);
+mongoose.connect(process.env.DB_URL, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    tls: true, // Enabling TLS
+    tlsAllowInvalidHostnames: false, // Set to true if you're using a self-signed certificate
+    tlsAllowInvalidCertificates: false,
+});
 
 const db= mongoose.connection;
 
