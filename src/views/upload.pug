@@ -2,9 +2,9 @@ extends base.pug
 
 block content
     div.upload__container
-        div.upload__video
-            video#preview
-            button#actionBtn.social__btn Start Recording
+        //- div.upload__video
+        //-     video#preview
+        //-     button#actionBtn.social__btn Start Recording
         if errorMessage
             span=errorMessage
         form(method="POST", enctype="multipart/form-data")
@@ -17,5 +17,5 @@ block content
             input(placeholder="Hashtags, separated by comma.", required, type="text", name="hashtags")
             input(type="submit", value="Upload Video")
 
-block scripts
-    script(src="/assets/js/recorder.js") 
+//- block scripts
+//-     script(src="/assets/js/recorder.js") 

@@ -166,15 +166,16 @@ export const postEdit = async(req, res) => {
         },
         file,
     } = req;
-    const findUsername = await User.findOne({username})
-    const findEmail = await User.findOne({email})
-    if(findUsername._id !=_id || findEmail._id !=_id){
-        return res.status(400).render("edit-profile", {pageTitle:"Edit Profile", errorMessage:"Email or Username already exists"})
-    }
+    console.log(file);
+    // const findUsername = await User.findOne({username})
+    // const findEmail = await User.findOne({email})
+    // if(findUsername._id !=_id || findEmail._id !=_id){
+    //     return res.status(400).render("edit-profile", {pageTitle:"Edit Profile", errorMessage:"Email or Username already exists"})
+    // }
     const updatedUser = await User.findByIdAndUpdate(
         _id, 
         {
-            avatarUrl: file? file.path : avatarUrl,
+            avatarUrl: file? file.location : avatarUrl,
             name, 
             email, 
             username, 
