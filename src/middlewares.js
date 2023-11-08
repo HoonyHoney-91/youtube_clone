@@ -13,12 +13,24 @@ const s3 = new S3Client({
     secretAccessKey: process.env.AWS_SECRET,
     },
 });
-// console.log(s3);
+console.log(process.env.NODE_ENV);
 
-const multerUploader = multerS3({
+const s3ImageUploader = multerS3({
     s3: s3,
     bucket: "youtubecloneanthony",
     acl: "public-read",
+    key: function (req, file, cb) {
+        cb(null, "images/" + file.originalname);
+    },
+});
+
+const s3VideoUploader = multerS3({
+    s3: s3,
+    bucket: "youtubecloneanthony",
+    acl: "public-read",
+    key: function (req, file, cb) {
+        cb(null, "videos/" + file.originalname);
+    },
 });
 
 export const localsMiddleware = (req, res, next)=>{
@@ -50,12 +62,12 @@ export const avatarUpload = multer({
      limits:{
         fileSize: 3000000,
     },
-    storage: multerUploader,
+    storage: s3ImageUploader,
 });
 export const videoUpload = multer({ 
     dest: "uploads/videos/", 
     limits:{
         fileSize: 1000000000,
     },
-    storage: multerUploader,
+    storage: s3VideoUploader,
 });

@@ -1,7 +1,7 @@
 extends base.pug
 
 block content
-    img(src="/"+loggedInUser.avatarUrl)
+    img(src=loggedInUser.avatarUrl).avatar
     if errorMessage
         span=errorMessage
     form(method="POST" enctype="multipart/form-data").edit-profile__form
