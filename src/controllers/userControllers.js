@@ -47,8 +47,13 @@ export const getLogin = (req, res) => {
 export const postLogin = async(req, res) => {
     const { username, password} = req.body;
     const pageTitle = "Login";
+
+    console.log("Received username:", username);
+    console.log("Received password:", password);
+
     const user = await User.findOne({ username, socialOnly:false });
     if(!user){
+        console.log("User not found!");
         return res
         .status(400)
         .render("login", {
@@ -65,6 +70,8 @@ export const postLogin = async(req, res) => {
             errorMessage:"Incorrect password"
         });
     }
+    console.log("User data before rendering:", user);
+    
     req.session.loggedIn = true;
     req.session.user = user;
     return res.redirect("/");
