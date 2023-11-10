@@ -57,17 +57,17 @@ This is a full-stack YouTube clone application built with Node.js, Express, Mong
 #### Data Modeling with Mongoose
 The app defines MongoDB data models using Mongoose schemas and models:
 
-    - User - Defines user properties like email, username, avatar, videos etc. Has pre-save hook to hash passwords.
-    - Video - Defines video properties like title, description, file URL, views etc. Has static method to format hashtags.
-    - Comment - Stores text, owner and video reference.
+- User - Defines user properties like email, username, avatar, videos etc. Has pre-save hook to hash passwords.
+- Video - Defines video properties like title, description, file URL, views etc. Has static method to format hashtags.
+- Comment - Stores text, owner and video reference.
 
 The schemas define the structure of documents in MongoDB collections. Some key points:
 
-    - Validation for required fields, data types and lengths
-    - Data relationships using ObjectId refs and population
-    - Hooks like password hashing before saving
-    - Static helpers like hashtag formatter
-    - Defaults for values like date created or view count
+- Validation for required fields, data types and lengths
+- Data relationships using ObjectId refs and population
+- Hooks like password hashing before saving
+- Static helpers like hashtag formatter
+- Defaults for values like date created or view count
 
     This structure allows interacting with MongoDB in an object oriented way.
 
@@ -80,10 +80,10 @@ The schemas define the structure of documents in MongoDB collections. Some key p
         password: '12345' // hashed before save
     }) 
 
-// Example querying videos 
-const videos = await Video.find()
-    .populate('owner') // populate owner objectId ref  
-    .sort({createdAt: 'desc'})
+    // Example querying videos 
+    const videos = await Video.find()
+        .populate('owner') // populate owner objectId ref  
+        .sort({createdAt: 'desc'})
     ```
 
 ### Frontend
