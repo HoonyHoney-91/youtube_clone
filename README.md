@@ -13,11 +13,11 @@ This is a full-stack YouTube clone application built with Node.js, Express, Mong
 - Video playback with controls
 - Like, view counters, and comments on videos
 - Search videos by title and description
-- Responsive UI for desktop and mobile
+<!-- - Responsive UI for desktop and mobile -->
 
 ### User Authentication
 - Users can sign up, login, and logout
-- User passwords are hashed using BCrypt before storing in MongoDB
+- User passwords are hashed using Bcrypt before storing in MongoDB
 - Sessions are used to determine if user is logged in
 - Login with GitHub OAuth is supported
 
@@ -103,16 +103,16 @@ Instructions for installing and running project locally.
 - AWS S3 account
 
 ### Installing
-1. Clone the repo
+1. Clone the repo<br />
 `git clone https://github.com/hoony91/youtube_clone.git`
 
-2. Install NPM packages
+2. Install NPM packages<br />
 `npm install`
 
-3. Set environment variables
+3. Set environment variables<br />
 `cp .env.example .env`
 
-4. Run the server
+4. Run the server<br />
 `npm run start`
 
 The app will now be running at http://localhost:3000
