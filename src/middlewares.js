@@ -4,17 +4,11 @@ import { S3Client } from "@aws-sdk/client-s3";
 
 const s3 = new S3Client({
     region: "us-west-1", 
-    // region error solve
-    //region은 aws->s3->bucket 에 적혀있음
     credentials: {
-    // apiVersion: "2023-11-05",
-    //날짜는 aws->IAM->user->user click 시 생성날짜 존재
     accessKeyId: process.env.AWS_ID,
     secretAccessKey: process.env.AWS_SECRET,
     },
 });
-console.log(process.env.NODE_ENV);
-
 const s3ImageUploader = multerS3({
     s3: s3,
     bucket: "youtubecloneanthony",
